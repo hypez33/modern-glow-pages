@@ -30,12 +30,6 @@ const benefits = [
   },
 ];
 
-const quickSummary = [
-  "Klarer Online-Auftritt statt veralteter Seite",
-  "Mehr Anfragen über Smartphone und Google",
-  "Weniger Rückfragen durch klare Leistungsdarstellung",
-];
-
 const SWIPE_THRESHOLD = 50;
 
 const BenefitsSection = () => {
@@ -129,16 +123,6 @@ const BenefitsSection = () => {
             <p className="text-muted-foreground font-body text-lg sm:text-xl max-w-2xl mx-auto">
               Damit Kunden nicht nur schauen, sondern sich direkt bei Ihnen melden.
             </p>
-          </div>
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <div className="grid gap-2.5 sm:grid-cols-3 mb-7 sm:mb-8">
-            {quickSummary.map((point) => (
-              <div key={point} className="rounded-xl neu-surface-soft px-4 py-3 text-base font-body text-foreground/85">
-                {point}
-              </div>
-            ))}
           </div>
         </ScrollReveal>
 

@@ -76,7 +76,7 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.div
-            className="lg:col-span-5"
+            className="mb-8 sm:mb-6 lg:mb-0 lg:col-span-5"
             initial={{ opacity: 0, x: 28 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.65, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -102,22 +102,28 @@ const HeroSection = () => {
         </div>
 
         <motion.div
-          className="mt-10 sm:mt-12 grid grid-cols-1 gap-3 sm:grid-cols-3"
+          className="mt-7 sm:mt-9 grid grid-cols-3 gap-2 sm:gap-2.5 lg:max-w-[42rem]"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.45 }}
         >
-          <div className="rounded-xl neu-surface-soft px-4 py-3">
-            <p className="font-display text-2xl sm:text-3xl text-foreground leading-none">380+</p>
-            <p className="text-sm text-muted-foreground font-body mt-1">Handwerker-Webseiten</p>
+          <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
+            <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">380+</p>
+            <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
+              Handwerker-Webseiten
+            </p>
           </div>
-          <div className="rounded-xl neu-surface-soft px-4 py-3">
-            <p className="font-display text-2xl sm:text-3xl text-foreground leading-none">4.9★</p>
-            <p className="text-sm text-muted-foreground font-body mt-1">Google-Bewertung</p>
+          <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
+            <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">4.9★</p>
+            <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
+              Google-Bewertung
+            </p>
           </div>
-          <div className="rounded-xl neu-surface-soft px-4 py-3">
-            <p className="font-display text-2xl sm:text-3xl text-foreground leading-none">14 Tage</p>
-            <p className="text-sm text-muted-foreground font-body mt-1">Durchschnitt bis live</p>
+          <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
+            <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">14 Tage</p>
+            <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
+              Durchschnitt bis live
+            </p>
           </div>
         </motion.div>
 
