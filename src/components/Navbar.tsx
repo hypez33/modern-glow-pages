@@ -24,8 +24,7 @@ const Navbar = () => {
           Handwerk<span className="text-primary">digital</span>
         </a>
 
-        <div className="hidden md:flex items-center gap-7">
-          <NeumorphismPresetToggle />
+        <div className="hidden md:flex items-center gap-5">
           <ThemeToggle />
           <Button size="default" className="ml-1" onClick={() => setModalOpen(true)}>
             Kostenlosen Check starten

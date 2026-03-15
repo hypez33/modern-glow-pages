@@ -26,8 +26,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.45, delay: 0.2 }}
         >
-          <div className="neu-surface-soft flex items-center gap-2 rounded-2xl px-2 py-2 sm:px-3">
-            <NeumorphismPresetToggle />
+          <div className="neu-surface-soft flex items-center rounded-2xl px-2 py-2 sm:px-3">
             <ThemeToggle className="shrink-0" />
           </div>
         </motion.div>
