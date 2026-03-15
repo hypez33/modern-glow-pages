@@ -14,14 +14,14 @@ const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section id="hero" className="relative overflow-hidden pt-6 sm:pt-8 pb-10 sm:pb-12">
+    <section id="hero" className="relative overflow-hidden pt-16 sm:pt-8 pb-8 sm:pb-12">
       <FilmGrain />
       <div className="absolute top-20 right-[-140px] h-[320px] w-[320px] rounded-full bg-primary/5 blur-3xl" />
       <div className="absolute bottom-0 left-[-100px] h-[250px] w-[250px] rounded-full bg-accent/10 blur-3xl" />
 
       <div className="container mx-auto relative">
         <motion.div
-          className="mb-8 flex justify-end lg:absolute lg:right-0 lg:top-0 lg:mb-0 lg:z-20"
+          className="mb-4 flex justify-end lg:absolute lg:right-0 lg:top-0 lg:mb-0 lg:z-20"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.45, delay: 0.2 }}
@@ -31,14 +31,15 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        <div className="grid items-end gap-8 lg:grid-cols-12 lg:gap-10">
+        {/* Mobile-first: text block comes first, image below */}
+        <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:items-end lg:gap-10">
           <motion.div
             className="lg:col-span-7"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <h1 className="text-[2.15rem] leading-[1.02] sm:text-5xl lg:text-[4rem] xl:text-[4.6rem] tracking-tight mb-4 sm:mb-6">
+            <h1 className="text-[2.4rem] leading-[1.05] sm:text-5xl lg:text-[4rem] xl:text-[4.6rem] tracking-tight mb-3 sm:mb-6">
               Alte Website?
               <br />
               <span className="italic text-primary">Keine Website?</span>
@@ -46,14 +47,14 @@ const HeroSection = () => {
               <span className="italic text-primary">Kein Problem!</span>
             </h1>
 
-            <p className="text-lg sm:text-xl lg:text-[1.35rem] text-muted-foreground font-body max-w-xl leading-relaxed mb-6 sm:mb-8">
+            <p className="text-base sm:text-xl lg:text-[1.35rem] text-muted-foreground font-body max-w-xl leading-relaxed mb-4 sm:mb-8">
               Wir bauen in kurzer Zeit eine mobile Webseite, die Vertrauen schafft, Leistungen klar zeigt und neue Kundenkontakte planbar macht.
             </p>
 
-            <ul className="grid gap-2 text-base sm:text-lg font-body text-foreground/85 mb-6 sm:mb-8">
+            <ul className="flex flex-wrap gap-x-4 gap-y-1.5 text-sm sm:text-lg font-body text-foreground/85 mb-5 sm:mb-8">
               {trustItems.map((item) => (
-                <li key={item} className="inline-flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-primary" />
+                <li key={item} className="inline-flex items-center gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary shrink-0" />
                   {item}
                 </li>
               ))}
@@ -69,7 +70,7 @@ const HeroSection = () => {
                 </a>
               </Button>
             </div>
-            <p className="text-sm sm:text-base text-muted-foreground font-body mt-3">
+            <p className="text-xs sm:text-base text-muted-foreground font-body mt-2 sm:mt-3">
               Kostenlos · Unverbindlich · Auf Handwerk ausgerichtet
             </p>
           </motion.div>
