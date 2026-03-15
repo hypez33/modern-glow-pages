@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
-import NeumorphismPresetToggle from "@/components/NeumorphismPresetToggle";
 import ConsultationModal from "@/components/ConsultationModal";
 import teamImage from "@/assets/team-collab.jpg";
 import workspaceImage from "@/assets/workspace.jpg";
