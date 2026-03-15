@@ -35,16 +35,6 @@ const TrustBarSection = () => {
               Bereits für Handwerksbetriebe im Einsatz
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-5">
-              {trades.map((trade) => (
-                <span
-                  key={trade}
-                  className="inline-flex items-center rounded-full border border-border/50 bg-background/60 px-3 py-1 text-xs sm:text-sm font-body text-muted-foreground"
-                >
-                  {trade}
-                </span>
-              ))}
-            </div>
 
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {proofItems.map((item) => (
