@@ -15,10 +15,8 @@ const ProblemSection = () => {
       id="probleme"
       className="relative min-h-screen py-14 sm:py-16 lg:py-24 overflow-hidden flex items-center"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-[#d9dad3] via-[#e8e8e2] via-45% to-[#f6f6f2]" />
-      <div className="absolute inset-x-0 top-0 h-[58%] bg-gradient-to-b from-[#d1d2cb]/95 via-[#dfdfd9]/88 via-35% to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.7),transparent_36%),radial-gradient(circle_at_bottom_right,rgba(220,220,214,0.4),transparent_34%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background/75" />
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary via-muted to-background" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
 
       <div className="container mx-auto relative z-10">
         <ScrollReveal>
