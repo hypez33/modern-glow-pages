@@ -14,7 +14,7 @@ const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section id="hero" className="relative overflow-hidden pt-10 sm:pt-12 pb-10 sm:pb-12">
+    <section id="hero" className="relative overflow-hidden pt-6 sm:pt-8 pb-10 sm:pb-12">
       <FilmGrain />
       <div className="absolute top-20 right-[-140px] h-[320px] w-[320px] rounded-full bg-primary/5 blur-3xl" />
       <div className="absolute bottom-0 left-[-100px] h-[250px] w-[250px] rounded-full bg-accent/10 blur-3xl" />
