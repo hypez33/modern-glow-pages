@@ -1,15 +1,6 @@
 import { Clock3, MapPinned, Smartphone, UserRoundCheck } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
-const trades = [
-  "Elektro",
-  "Sanitär & Heizung",
-  "Dach",
-  "Maler",
-  "Tischlerei",
-  "Fliesen",
-  "Gartenbau",
-];
 
 const proofItems = [
   {
