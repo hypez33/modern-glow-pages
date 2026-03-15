@@ -1,4 +1,5 @@
 import { ArrowRight, Globe, Search, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
 import { Button } from "@/components/ui/button";
 
@@ -121,9 +122,9 @@ const ServicesSection = () => {
               Unsicher, welches Paket passt? Wir ordnen das kurz mit Ihnen und empfehlen nur, was wirklich nötig ist.
             </p>
             <Button asChild variant="hero" className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90">
-              <a href="#qualifizierung">
+              <Link to="/qualifizierung">
                 Passendes Paket finden <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </Button>
           </div>
         </ScrollReveal>

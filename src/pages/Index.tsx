@@ -10,7 +10,6 @@ import ServicesSection from "@/components/ServicesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
-import QualificationSection from "@/components/QualificationSection";
 import FooterSection from "@/components/FooterSection";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import BackToTopButton from "@/components/BackToTopButton";
@@ -30,7 +29,6 @@ const Index = () => {
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
-      <QualificationSection />
       <FooterSection />
       <StickyMobileCTA />
       <BackToTopButton />

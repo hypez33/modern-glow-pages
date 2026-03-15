@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Phone } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import teamImage from "@/assets/team-collab.jpg";
 import workspaceImage from "@/assets/workspace.jpg";
 import FilmGrain from "@/components/FilmGrain";
@@ -45,9 +46,9 @@ const HeroSection = () => {
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
-                <a href="#qualifizierung">
+                <Link to="/qualifizierung">
                   60-Sekunden-Check starten <ArrowRight className="w-5 h-5" />
-                </a>
+                </Link>
               </Button>
               <Button asChild variant="hero-outline" size="xl" className="w-full sm:w-auto">
                 <a href="tel:+49800123456">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageSquare, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
 import ConsultationModal from "@/components/ConsultationModal";
 
@@ -27,9 +28,9 @@ const CTASection = () => {
 
             <div className="grid gap-3 sm:grid-cols-2 max-w-2xl mx-auto">
               <Button asChild variant="hero" size="xl" className="w-full">
-                <a href="#qualifizierung">
+                <Link to="/qualifizierung">
                   Zum 60-Sekunden-Check <ArrowRight className="w-5 h-5" />
-                </a>
+                </Link>
               </Button>
               <Button asChild variant="hero-outline" size="xl" className="w-full">
                 <a href="tel:+49800123456">

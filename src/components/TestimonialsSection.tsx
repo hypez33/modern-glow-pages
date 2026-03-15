@@ -4,6 +4,7 @@ import person2 from "@/assets/person-2.jpg";
 import person3 from "@/assets/person-3.jpg";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const testimonials = [
   {
@@ -110,9 +111,9 @@ const TestimonialsSection = () => {
               Das sagen Betriebe, die vorher keine oder nur eine schwache Webseite hatten. Im nächsten Schritt prüfen wir Ihren Status und empfehlen den klarsten Weg.
             </p>
             <Button asChild variant="hero" className="w-full sm:w-auto">
-              <a href="#qualifizierung">
+              <Link to="/qualifizierung">
                 Jetzt Status prüfen <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </Button>
           </div>
         </ScrollReveal>

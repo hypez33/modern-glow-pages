@@ -5,7 +5,11 @@ import { Input } from "@/components/ui/input";
 import ScrollReveal from "./ScrollReveal";
 import { consultationSteps } from "@/data/consultationSteps";
 
-const QualificationSection = () => {
+type QualificationSectionProps = {
+  standalone?: boolean;
+};
+
+const QualificationSection = ({ standalone = false }: QualificationSectionProps) => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [contact, setContact] = useState({ name: "", phone: "", email: "" });
@@ -46,7 +50,12 @@ const QualificationSection = () => {
   };
 
   return (
-    <section id="qualifizierung" className="py-14 sm:py-16 lg:py-24 bg-secondary text-secondary-foreground">
+    <section
+      id="qualifizierung"
+      className={`bg-secondary text-secondary-foreground ${
+        standalone ? "pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-24" : "py-14 sm:py-16 lg:py-24"
+      }`}
+    >
       <div className="container mx-auto">
         <ScrollReveal>
           <div className="max-w-3xl mb-8">

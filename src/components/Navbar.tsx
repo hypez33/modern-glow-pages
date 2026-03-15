@@ -1,14 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import NeumorphismPresetToggle from "@/components/NeumorphismPresetToggle";
 
 const links = [
-  { href: "#vorteile", label: "Vorteile" },
-  { href: "#pakete", label: "Pakete" },
-  { href: "#stimmen", label: "Ergebnisse" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#vorteile", label: "Vorteile" },
+  { href: "/#pakete", label: "Pakete" },
+  { href: "/#stimmen", label: "Ergebnisse" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 const Navbar = () => {
@@ -28,7 +29,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 sm:h-[72px]">
-        <a href="#hero" className="font-display text-[1.35rem] sm:text-2xl font-bold tracking-tight text-foreground">
+        <a href="/#hero" className="font-display text-[1.35rem] sm:text-2xl font-bold tracking-tight text-foreground">
           Handwerk<span className="text-primary">digital</span>
         </a>
 
@@ -45,7 +46,7 @@ const Navbar = () => {
           <NeumorphismPresetToggle />
           <ThemeToggle />
           <Button asChild size="default" className="ml-1">
-            <a href="#qualifizierung">Kostenlosen Check starten</a>
+            <Link to="/qualifizierung">Kostenlosen Check starten</Link>
           </Button>
         </div>
 
@@ -80,9 +81,9 @@ const Navbar = () => {
             <ThemeToggle className="w-full rounded-xl" />
           </div>
           <Button asChild className="w-full mt-2" size="default">
-            <a href="#qualifizierung" onClick={() => setMobileOpen(false)}>
+            <Link to="/qualifizierung" onClick={() => setMobileOpen(false)}>
               Kostenlosen Check starten
-            </a>
+            </Link>
           </Button>
         </div>
       )}

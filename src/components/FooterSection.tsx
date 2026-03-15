@@ -4,7 +4,7 @@ const FooterSection = () => {
       <div className="container mx-auto">
         <div className="grid gap-10 md:grid-cols-12 mb-10 sm:mb-12">
           <div className="md:col-span-4">
-            <a href="#hero" className="font-display text-2xl font-bold text-foreground">
+            <a href="/#hero" className="font-display text-2xl font-bold text-foreground">
               Handwerk<span className="text-primary">digital</span>
             </a>
             <p className="text-sm text-muted-foreground font-body mt-4 max-w-xs leading-relaxed">
@@ -15,16 +15,16 @@ const FooterSection = () => {
           <div className="md:col-span-3">
             <p className="text-xs font-body uppercase tracking-widest text-muted-foreground mb-4">Funnel</p>
             <div className="space-y-3">
-              <a href="#probleme" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
+              <a href="/#probleme" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
                 Ausgangslage
               </a>
-              <a href="#vorteile" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
+              <a href="/#vorteile" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
                 Vorteile
               </a>
-              <a href="#pakete" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
+              <a href="/#pakete" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
                 Pakete
               </a>
-              <a href="#qualifizierung" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
+              <a href="/qualifizierung" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
                 60-Sekunden-Check
               </a>
             </div>
