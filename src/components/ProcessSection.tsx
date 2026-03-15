@@ -4,22 +4,22 @@ const steps = [
   {
     number: "01",
     title: "Kurzes Kennenlernen",
-    text: "In 15 Minuten klären wir Gewerk, Region, Ziel und Ihre aktuelle Ausgangslage.",
+    text: "Wir klären in 15 Minuten Gewerk, Region und Ziel. Ohne Fachchinesisch.",
   },
   {
     number: "02",
-    title: "Konzept, Texte und Struktur",
-    text: "Sie geben den Input aus Ihrem Alltag. Daraus entsteht ein klarer und professioneller Auftritt.",
+    title: "Konzept, Texte, Design",
+    text: "Sie geben Input aus dem Alltag. Wir bauen daraus klare Inhalte und Struktur.",
   },
   {
     number: "03",
-    title: "Umsetzung und Freigabe",
-    text: "Sie sehen den Stand der Website Schritt für Schritt und geben nur das frei, was für Sie passt.",
+    title: "Umsetzung und Abstimmung",
+    text: "Sie sehen den Stand laufend und geben punktgenau frei. Keine langen Schleifen.",
   },
   {
     number: "04",
-    title: "Livegang",
-    text: "Ihre Website geht online und ist sauber eingerichtet, mobil optimiert und kontaktfreundlich aufgebaut.",
+    title: "Online und betreut",
+    text: "Die Seite geht live, wird technisch gepflegt und für lokale Suche vorbereitet.",
   },
 ];
 
@@ -29,13 +29,12 @@ const ProcessSection = () => {
       <div className="container mx-auto">
         <ScrollReveal>
           <div className="max-w-2xl mb-8 sm:mb-10">
-            <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-4">Ablauf</p>
-            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">So läuft die Zusammenarbeit ab</h2>
+            <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-4">So läuft es ab</p>
+            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">
+              Klarer Ablauf, <span className="italic text-primary">kein Projekt-Chaos.</span>
+            </h2>
             <p className="font-body text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Einfach. Klar. Ohne Projekt-Chaos.
-            </p>
-            <p className="mt-3 font-body text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Sie wissen zu jedem Zeitpunkt, was als Nächstes passiert. Kein Fachchinesisch, keine unnötig langen Abstimmungen.
+              Sie wissen jederzeit, was als Nächstes passiert. Das spart Zeit und sorgt für einen sauberen Start.
             </p>
           </div>
         </ScrollReveal>

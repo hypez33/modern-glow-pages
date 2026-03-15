@@ -14,14 +14,14 @@ const FooterSection = () => {
                 Handwerk<span className="text-primary">digital</span>
               </a>
               <p className="text-sm text-muted-foreground font-body mt-4 max-w-xs leading-relaxed">
-                Websites für Handwerksbetriebe in Deutschland. Klar, schnell und auf mobile Anfragen ausgerichtet.
+                Webseiten und optionale Betreuung speziell für Handwerksbetriebe. Klar, schnell und auf mobile Anfragen ausgerichtet.
               </p>
             </div>
 
             <div className="md:col-span-3">
               <p className="text-xs font-body uppercase tracking-widest text-muted-foreground mb-4">Funnel</p>
               <div className="space-y-3">
-                <a href="/#ausgangslage" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
+                <a href="/#probleme" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
                   Ausgangslage
                 </a>
                 <a href="/#vorteile" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
@@ -43,13 +43,13 @@ const FooterSection = () => {
             <div className="md:col-span-2">
               <p className="text-xs font-body uppercase tracking-widest text-muted-foreground mb-4">Rechtliches</p>
               <div className="space-y-3">
-                <a href="/impressum" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
+                <a href="#" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
                   Impressum
                 </a>
-                <a href="/datenschutz" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
+                <a href="#" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
                   Datenschutz
                 </a>
-                <a href="/agb" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
+                <a href="#" className="block text-sm font-body text-foreground/70 hover:text-foreground transition-colors">
                   AGB
                 </a>
               </div>

@@ -8,11 +8,7 @@ import teamImage from "@/assets/team-collab.jpg";
 import workspaceImage from "@/assets/workspace.jpg";
 import FilmGrain from "@/components/FilmGrain";
 
-const trustItems = [
-  "Für Handwerksbetriebe in Deutschland",
-  "Ohne Technikstress",
-  "Mit festem Ansprechpartner",
-];
+const trustItems = ["Für Handwerksbetriebe", "Ohne Technikstress", "Direkter Ansprechpartner"];
 
 const HeroSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -35,6 +31,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
+        {/* Mobile-first: text block comes first, image below */}
         <div className="flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:items-end lg:gap-10">
           <motion.div
             className="lg:col-span-7"
@@ -43,11 +40,15 @@ const HeroSection = () => {
             transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <h1 className="text-[2.4rem] leading-[1.05] sm:text-5xl lg:text-[4rem] xl:text-[4.6rem] tracking-tight mb-3 sm:mb-6">
-              Websites für Handwerksbetriebe in Deutschland, die Vertrauen schaffen und neue Anfragen möglich machen
+              Alte Website?
+              <br />
+              <span className="italic text-primary">Keine Website?</span>
+              <br />
+              <span className="italic text-primary">Kein Problem!</span>
             </h1>
 
-            <p className="text-base sm:text-xl lg:text-[1.35rem] text-muted-foreground font-body max-w-2xl leading-relaxed mb-4 sm:mb-8">
-              Ob Sie noch keine Website haben oder Ihr aktueller Auftritt nicht mehr überzeugt: Wir erstellen moderne Websites für Handwerksbetriebe in Deutschland, die professionell wirken, auf dem Smartphone sauber funktionieren und den Kontakt für potenzielle Kunden einfacher machen.
+            <p className="text-base sm:text-xl lg:text-[1.35rem] text-muted-foreground font-body max-w-xl leading-relaxed mb-4 sm:mb-8">
+              Wir bauen in kurzer Zeit eine mobile Webseite, die Vertrauen schafft, Leistungen klar zeigt und neue Kundenkontakte planbar macht.
             </p>
 
             <ul className="flex flex-wrap gap-x-4 gap-y-1.5 text-sm sm:text-lg font-body text-foreground/85 mb-5 sm:mb-8">
@@ -70,7 +71,7 @@ const HeroSection = () => {
               </Button>
             </div>
             <p className="text-xs sm:text-base text-muted-foreground font-body mt-2 sm:mt-3">
-              Kostenlos · Unverbindlich · Speziell für Handwerksbetriebe in Deutschland
+              Kostenlos · Unverbindlich · Auf Handwerk ausgerichtet
             </p>
           </motion.div>
 
@@ -91,54 +92,44 @@ const HeroSection = () => {
                 alt="Google-Ergebnisse für Handwerksbetrieb"
                 className="absolute -bottom-5 left-3 sm:left-5 w-[68%] rounded-xl shadow-elevated object-cover aspect-video border-4 border-background"
               />
+
+              <div className="absolute top-3 right-3 sm:right-4 rounded-xl bg-secondary text-secondary-foreground p-3 sm:p-4 shadow-elevated">
+                <p className="font-display text-2xl sm:text-3xl leading-none">+67%</p>
+                <p className="text-xs sm:text-sm font-body text-secondary-foreground/65 mt-1">mehr qualifizierte Anfragen</p>
+              </div>
             </div>
           </motion.div>
         </div>
 
-        <div id="zahlen" className="mt-7 sm:mt-9 lg:max-w-[56rem]">
-          <h2 className="text-[1.5rem] sm:text-[1.9rem] lg:text-[2.3rem] leading-tight mb-3 sm:mb-4">
-            Mehr Sichtbarkeit. Mehr Vertrauen. Mehr qualifizierte Anfragen.
-          </h2>
-
-          <motion.div
-            className="grid grid-cols-2 gap-2 sm:gap-2.5 lg:grid-cols-4"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
-          >
-            <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
-              <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">+67%</p>
-              <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
-                mehr qualifizierte Anfragen
-              </p>
-            </div>
-            <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
-              <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">380+</p>
-              <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
-                umgesetzte Websites für Handwerk und regionalen Mittelstand
-              </p>
-            </div>
-            <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
-              <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">4.9★</p>
-              <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
-                Google-Bewertung
-              </p>
-            </div>
-            <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
-              <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">Ø 14 Tage</p>
-              <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
-                bis zur fertigen Website
-              </p>
-            </div>
-          </motion.div>
-        </div>
+        <motion.div
+          className="mt-7 sm:mt-9 grid grid-cols-3 gap-2 sm:gap-2.5 lg:max-w-[42rem]"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+        >
+          <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
+            <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">380+</p>
+            <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
+              Handwerker-Webseiten
+            </p>
+          </div>
+          <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
+            <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">4.9★</p>
+            <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
+              Google-Bewertung
+            </p>
+          </div>
+          <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
+            <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">14 Tage</p>
+            <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
+              Durchschnitt bis live
+            </p>
+          </div>
+        </motion.div>
 
         <div className="mt-6 sm:mt-8 rounded-xl neu-surface px-4 py-3 sm:px-5 sm:py-4">
           <p className="text-base sm:text-lg font-body font-semibold text-foreground leading-relaxed">
-            Für Handwerksbetriebe in Deutschland, die online professionell auftreten und leichter gefunden werden wollen
-          </p>
-          <p className="mt-2 text-sm sm:text-base font-body text-muted-foreground leading-relaxed">
-            Ob Elektriker, Dachdecker, SHK, Maler, Gartenbau, Trockenbau oder Innenausbau: Wer heute online nicht überzeugend auftritt, wird oft gar nicht erst kontaktiert.
+            Für Handwerksbetriebe aus Deutschland, Österreich und der Schweiz, die online gefunden werden und wiederkehrend passende Anfragen erhalten wollen.
           </p>
         </div>
       </div>

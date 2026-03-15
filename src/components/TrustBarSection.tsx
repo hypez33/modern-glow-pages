@@ -6,34 +6,35 @@ const proofItems = [
   {
     icon: Smartphone,
     title: "Mobil optimiert",
-    text: "Ihre Website sieht auf jedem Smartphone sauber aus und ist leicht bedienbar.",
+    text: "Leicht bedienbar auf jedem Smartphone.",
   },
   {
     icon: MapPinned,
     title: "Google-ready",
-    text: "Damit Ihr Betrieb in der lokalen Suche und bei Google Maps besser gefunden werden kann.",
+    text: "Struktur für lokale Suche und Maps.",
   },
   {
     icon: UserRoundCheck,
     title: "Fester Ansprechpartner",
-    text: "Kein Ticketsystem, kein Weiterreichen, kein unnötiges Technik-Wirrwarr.",
+    text: "Direkter Kontakt statt Ticketsystem.",
   },
   {
     icon: Clock3,
-    title: "Schnell online",
-    text: "Klare Abläufe, kurze Wege und eine Umsetzung ohne unnötige Verzögerungen.",
+    title: "In 14 Tagen online",
+    text: "Klare Abläufe, feste Meilensteine.",
   },
 ];
 
 const TrustBarSection = () => {
   return (
-    <section id="vorteile" className="py-10 sm:py-12">
+    <section id="vertrauen" className="py-10 sm:py-12">
       <div className="container mx-auto">
         <ScrollReveal>
           <div className="rounded-2xl neu-surface p-5 sm:p-6">
-            <h2 className="text-[2rem] sm:text-4xl lg:text-[3rem] leading-tight mb-6">
-              Darum funktioniert das für Handwerksbetriebe
-            </h2>
+            <p className="text-sm font-body tracking-[0.18em] uppercase text-primary mb-4">
+              Bereits für Handwerksbetriebe im Einsatz
+            </p>
+
 
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {proofItems.map((item) => (

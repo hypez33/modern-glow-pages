@@ -3,15 +3,15 @@ import ScrollReveal from "./ScrollReveal";
 
 const faqItems = [
   {
-    q: "Brauche ich wirklich eine neue Website?",
+    q: "Brauche ich überhaupt eine neue Webseite?",
     a: "Wenn Ihre Seite keine klaren Anfragen bringt oder veraltet wirkt, verschenken Sie täglich Vertrauen. Eine moderne, mobile Seite macht aus Besuchern konkrete Kontakte.",
   },
   {
-    q: "Was ist, wenn ich schon eine Website habe?",
+    q: "Was ist, wenn ich schon eine Webseite habe?",
     a: "Dann prüfen wir, was sinnvoll bleibt. Oft übernehmen wir Inhalte, straffen die Struktur und bauen die Seite technisch sowie optisch auf einen aktuellen Stand.",
   },
   {
-    q: "Wie schnell geht das?",
+    q: "Wie schnell seid ihr?",
     a: "In der Regel ist die Webseite in 14 Tagen online. Voraussetzung ist, dass Abstimmungen zeitnah erfolgen. Den Ablauf dafür halten wir bewusst einfach.",
   },
   {
@@ -42,10 +42,12 @@ const FAQSection = () => {
       <div className="container mx-auto">
         <ScrollReveal>
           <div className="max-w-2xl mb-8 sm:mb-10">
-            <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-4">FAQ</p>
-            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">Häufige Fragen, kurz beantwortet</h2>
+            <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-4">Häufige Fragen</p>
+            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">
+              Kurz beantwortet, <span className="italic text-primary">ohne Umwege.</span>
+            </h2>
             <p className="font-body text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Genau diese Punkte hören wir in fast jedem Erstgespräch.
+              Genau diese Punkte hören wir in fast jedem Erstgespräch mit Handwerksbetrieben.
             </p>
           </div>
         </ScrollReveal>

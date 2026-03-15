@@ -6,12 +6,7 @@ import workspaceImage from "@/assets/workspace.jpg";
 import person1 from "@/assets/person-1.jpg";
 import person2 from "@/assets/person-2.jpg";
 
-const claims = [
-  "Auf jedem Gerät sauber lesbar",
-  "Klare Kontaktwege",
-  "Leistungen verständlich erklärt",
-  "Sauber strukturierter Aufbau",
-];
+const claims = ["Schnell auf Mobil", "Klarer Kontaktweg", "Lokale Sichtbarkeit"];
 
 const PhotoBreakSection = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -46,9 +41,11 @@ const PhotoBreakSection = () => {
                 transition={{ duration: 0.35 }}
               />
               <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 lg:bottom-8 lg:left-8 max-w-[320px]">
-                <p className="text-xs sm:text-sm font-body uppercase tracking-[0.2em] text-primary-foreground/65 dark:text-white mb-2">So kann Ihr Betrieb online wirken</p>
+                <p className="text-xs sm:text-sm font-body uppercase tracking-[0.2em] text-primary-foreground/65 dark:text-white mb-2">
+                  So sieht Umsetzung aus
+                </p>
                 <p className="font-display text-2xl sm:text-3xl lg:text-[2.2rem] text-primary-foreground dark:text-white leading-tight">
-                  Professionell. Klar. Vertrauenswürdig. Damit Kunden sofort sehen: <span className="italic">Hier arbeitet ein echter Fachbetrieb.</span>
+                  Struktur, Design und Inhalte, die <span className="italic">Kunden schnell verstehen.</span>
                 </p>
               </div>
             </motion.div>
@@ -69,8 +66,8 @@ const PhotoBreakSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/70 to-transparent" />
                 <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-                  <p className="font-body text-base font-semibold text-primary-foreground dark:text-white">Professionell auf jedem Gerät</p>
-                  <p className="text-sm font-body text-primary-foreground/65 dark:text-white/80">Mobil sauber und direkt verständlich</p>
+                  <p className="font-body text-base font-semibold text-primary-foreground dark:text-white">Thomas Richter</p>
+                  <p className="text-sm font-body text-primary-foreground/65 dark:text-white/80">Elektriker, München</p>
                 </div>
               </motion.div>
             </ScrollReveal>
@@ -89,8 +86,10 @@ const PhotoBreakSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/70 to-transparent" />
                 <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-                  <p className="font-body text-base font-semibold text-primary-foreground dark:text-white">Klare Leistungen und Kontaktwege</p>
-                  <p className="text-sm font-body text-primary-foreground/65 dark:text-white/80">Sauber strukturiert und vertrauenswürdig aufgebaut</p>
+                  <p className="font-body text-base font-semibold text-primary-foreground dark:text-white">
+                    Ihr Betrieb professionell präsentiert
+                  </p>
+                  <p className="text-sm font-body text-primary-foreground/65 dark:text-white/80">Auf jedem Gerät sauber lesbar</p>
                 </div>
               </motion.div>
             </ScrollReveal>
@@ -112,7 +111,7 @@ const PhotoBreakSection = () => {
                   +380
                 </div>
               </div>
-              <p className="text-base font-body text-muted-foreground">So kann Ihr Betrieb online professionell, klar und vertrauenswürdig wirken</p>
+              <p className="text-base font-body text-muted-foreground">Handwerksbetriebe vertrauen auf diese Struktur</p>
             </div>
             <div className="flex flex-wrap gap-2">
               {claims.map((claim) => (
