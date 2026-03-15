@@ -17,6 +17,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background neu-page pb-20 md:pb-0">
       <HeroSection />
+      <TrustBarSection />
       <ClientLogoSlider />
       <ProblemSection />
       <BenefitsSection />
@@ -26,7 +27,6 @@ const Index = () => {
       <TestimonialsSection />
       <FAQSection />
       <CTASection />
-      <TrustBarSection />
       <FooterSection />
       <StickyMobileCTA />
       <BackToTopButton />

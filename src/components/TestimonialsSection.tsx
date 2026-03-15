@@ -44,20 +44,18 @@ const TestimonialsSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section id="stimmen" className="py-12 sm:py-14 lg:py-20 overflow-hidden">
+    <section id="kundenstimmen" className="py-12 sm:py-14 lg:py-20 overflow-hidden">
       <div className="container mx-auto">
         <ScrollReveal>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-8 sm:mb-10 gap-4 sm:gap-6">
             <div>
               <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-4">Kundenstimmen</p>
-              <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight max-w-xl">
-                Betriebe wie Ihrer zeigen,
-                <br />
-                dass es <span className="italic text-primary">messbar funktioniert.</span>
+              <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight max-w-3xl">
+                Betriebe wie Ihrer zeigen, dass ein professioneller Online-Auftritt <span className="italic text-primary">spuerbar helfen kann</span>
               </h2>
             </div>
             <p className="text-muted-foreground font-body max-w-sm lg:text-right text-base sm:text-lg">
-              Echte Stimmen von Handwerksbetrieben, die vorher keine oder nur eine schwache Webseite hatten.
+              Echte Stimmen von Handwerksbetrieben, die vorher keine oder nur eine schwache Website hatten.
             </p>
           </div>
         </ScrollReveal>

@@ -8,21 +8,17 @@ const CTASection = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <section id="abschluss" className="py-12 sm:py-14 lg:py-20 relative overflow-hidden">
+    <section id="check" className="py-12 sm:py-14 lg:py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-primary/5" />
       <div className="absolute top-1/2 left-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
 
       <div className="container mx-auto relative">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-5">Bereit für den nächsten Schritt</p>
-            <h2 className="font-display text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-5">
-              Aus Besucher wird Anfrage.
-              <br />
-              <span className="italic text-primary">Aus Anfrage wird Auftrag.</span>
-            </h2>
+            <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-5">Finaler Check</p>
+            <h2 className="font-display text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-5">Jetzt den naechsten Schritt machen</h2>
             <p className="text-muted-foreground font-body text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-              Gehen Sie jetzt den kurzen 60-Sekunden-Check durch. Danach wissen Sie, welcher Aufbau und welches Paket für Ihren Betrieb sinnvoll ist.
+              Mit dem 60-Sekunden-Check sehen Sie schnell, welche Website-Loesung fuer Ihren Betrieb sinnvoll ist.
             </p>
 
             <div className="grid gap-3 sm:grid-cols-2 max-w-2xl mx-auto">
