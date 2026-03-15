@@ -1,10 +1,11 @@
+import { useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 import person1 from "@/assets/person-1.jpg";
 import person2 from "@/assets/person-2.jpg";
 import person3 from "@/assets/person-3.jpg";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const testimonials = [
   {
@@ -40,6 +41,8 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section id="stimmen" className="py-12 sm:py-14 lg:py-20 overflow-hidden">
       <div className="container mx-auto">
@@ -110,13 +113,13 @@ const TestimonialsSection = () => {
             <p className="text-base sm:text-lg font-body text-muted-foreground leading-relaxed">
               Das sagen Betriebe, die vorher keine oder nur eine schwache Webseite hatten. Im nächsten Schritt prüfen wir Ihren Status und empfehlen den klarsten Weg.
             </p>
-            <Button asChild variant="hero" className="w-full sm:w-auto">
-              <Link to="/qualifizierung">
-                Jetzt Status prüfen <ArrowRight className="w-4 h-4" />
-              </Link>
+            <Button variant="hero" className="w-full sm:w-auto" onClick={() => setModalOpen(true)}>
+              Jetzt Status prüfen <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
         </ScrollReveal>
+
+        <ConsultationModal open={modalOpen} onOpenChange={setModalOpen} />
       </div>
     </section>
   );

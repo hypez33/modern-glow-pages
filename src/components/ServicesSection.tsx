@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { ArrowRight, Globe, Search, ShieldCheck } from "lucide-react";
-import { Link } from "react-router-dom";
 import ScrollReveal from "./ScrollReveal";
 import { Button } from "@/components/ui/button";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const services = [
   {
@@ -47,6 +48,8 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section id="pakete" className="py-14 sm:py-16 lg:py-24 bg-secondary text-secondary-foreground">
       <div className="container mx-auto">
@@ -121,13 +124,17 @@ const ServicesSection = () => {
             <p className="font-body text-base sm:text-lg text-secondary-foreground/75">
               Unsicher, welches Paket passt? Wir ordnen das kurz mit Ihnen und empfehlen nur, was wirklich nötig ist.
             </p>
-            <Button asChild variant="hero" className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link to="/qualifizierung">
-                Passendes Paket finden <ArrowRight className="w-4 h-4" />
-              </Link>
+            <Button
+              variant="hero"
+              className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90"
+              onClick={() => setModalOpen(true)}
+            >
+              Passendes Paket finden <ArrowRight className="w-4 h-4" />
             </Button>
           </div>
         </ScrollReveal>
+
+        <ConsultationModal open={modalOpen} onOpenChange={setModalOpen} />
       </div>
     </section>
   );

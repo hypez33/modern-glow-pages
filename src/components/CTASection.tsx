@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageSquare, Phone } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Phone } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import ConsultationModal from "@/components/ConsultationModal";
 
@@ -27,10 +26,8 @@ const CTASection = () => {
             </p>
 
             <div className="grid gap-3 sm:grid-cols-2 max-w-2xl mx-auto">
-              <Button asChild variant="hero" size="xl" className="w-full">
-                <Link to="/qualifizierung">
-                  Zum 60-Sekunden-Check <ArrowRight className="w-5 h-5" />
-                </Link>
+              <Button variant="hero" size="xl" className="w-full" onClick={() => setModalOpen(true)}>
+                Zum 60-Sekunden-Check <ArrowRight className="w-5 h-5" />
               </Button>
               <Button asChild variant="hero-outline" size="xl" className="w-full">
                 <a href="tel:+49800123456">
@@ -38,14 +35,6 @@ const CTASection = () => {
                 </a>
               </Button>
             </div>
-
-            <button
-              className="mt-4 inline-flex items-center gap-2 text-base font-body text-muted-foreground hover:text-foreground transition-colors"
-              onClick={() => setModalOpen(true)}
-            >
-              <MessageSquare className="w-4 h-4" />
-              Alternativ im Dialog-Fenster starten
-            </button>
 
             <p className="text-sm text-muted-foreground font-body mt-4">
               Antwort in der Regel innerhalb von 24 Stunden · Auch außerhalb klassischer Bürozeiten

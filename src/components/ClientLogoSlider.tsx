@@ -32,11 +32,11 @@ const ClientLogoSlider = () => {
               <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-background via-background/85 to-transparent sm:w-16" />
               <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-background via-background/85 to-transparent sm:w-16" />
 
-              <div className="flex w-max animate-marquee items-center gap-4 hover:[animation-play-state:paused] sm:gap-5">
+              <div className="flex w-max animate-marquee items-center whitespace-nowrap will-change-transform hover:[animation-play-state:paused]">
                 {marqueeLogos.map((logo, index) => (
                   <div
                     key={`${logo.alt}-${index}`}
-                    className="flex h-[5.5rem] min-w-[190px] items-center justify-center rounded-2xl border border-border/45 bg-background/80 px-6 shadow-soft sm:h-[6.5rem] sm:min-w-[240px] sm:px-8"
+                    className="mr-4 flex h-[5.5rem] min-w-[190px] items-center justify-center rounded-2xl border border-border/45 bg-background/80 px-6 shadow-soft sm:mr-5 sm:h-[6.5rem] sm:min-w-[240px] sm:px-8"
                   >
                     <img
                       src={logo.src}

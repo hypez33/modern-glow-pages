@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 import NeumorphismPresetToggle from "@/components/NeumorphismPresetToggle";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -27,18 +28,20 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-7">
           <NeumorphismPresetToggle />
           <ThemeToggle />
-          <Button asChild size="default" className="ml-1">
-            <Link to="/qualifizierung">Kostenlosen Check starten</Link>
+          <Button size="default" className="ml-1" onClick={() => setModalOpen(true)}>
+            Kostenlosen Check starten
           </Button>
         </div>
 
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          <Button asChild size="sm">
-            <Link to="/qualifizierung">Check starten</Link>
+          <Button size="sm" onClick={() => setModalOpen(true)}>
+            Check starten
           </Button>
         </div>
       </div>
+
+      <ConsultationModal open={modalOpen} onOpenChange={setModalOpen} />
     </nav>
   );
 };

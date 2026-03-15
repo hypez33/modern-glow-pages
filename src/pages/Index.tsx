@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustBarSection from "@/components/TrustBarSection";
 import ClientLogoSlider from "@/components/ClientLogoSlider";
@@ -17,7 +16,6 @@ import BackToTopButton from "@/components/BackToTopButton";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background neu-page pb-20 md:pb-0">
-      <Navbar />
       <HeroSection />
       <TrustBarSection />
       <ClientLogoSlider />

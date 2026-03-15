@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Phone } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import ThemeToggle from "@/components/ThemeToggle";
+import NeumorphismPresetToggle from "@/components/NeumorphismPresetToggle";
+import ConsultationModal from "@/components/ConsultationModal";
 import teamImage from "@/assets/team-collab.jpg";
 import workspaceImage from "@/assets/workspace.jpg";
 import FilmGrain from "@/components/FilmGrain";
@@ -9,13 +12,27 @@ import FilmGrain from "@/components/FilmGrain";
 const trustItems = ["Für Handwerksbetriebe", "Ohne Technikstress", "Direkter Ansprechpartner"];
 
 const HeroSection = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
-    <section id="hero" className="relative overflow-hidden pt-24 sm:pt-28 pb-10 sm:pb-12">
+    <section id="hero" className="relative overflow-hidden pt-10 sm:pt-12 pb-10 sm:pb-12">
       <FilmGrain />
       <div className="absolute top-20 right-[-140px] h-[320px] w-[320px] rounded-full bg-primary/5 blur-3xl" />
       <div className="absolute bottom-0 left-[-100px] h-[250px] w-[250px] rounded-full bg-accent/10 blur-3xl" />
 
       <div className="container mx-auto relative">
+        <motion.div
+          className="mb-8 flex justify-end lg:absolute lg:right-0 lg:top-0 lg:mb-0 lg:z-20"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.45, delay: 0.2 }}
+        >
+          <div className="neu-surface-soft flex items-center gap-2 rounded-2xl px-2 py-2 sm:px-3">
+            <NeumorphismPresetToggle />
+            <ThemeToggle className="shrink-0" />
+          </div>
+        </motion.div>
+
         <div className="grid items-end gap-8 lg:grid-cols-12 lg:gap-10">
           <motion.div
             className="lg:col-span-7"
@@ -45,10 +62,8 @@ const HeroSection = () => {
             </ul>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
-                <Link to="/qualifizierung">
-                  60-Sekunden-Check starten <ArrowRight className="w-5 h-5" />
-                </Link>
+              <Button variant="hero" size="xl" className="w-full sm:w-auto" onClick={() => setModalOpen(true)}>
+                60-Sekunden-Check starten <ArrowRight className="w-5 h-5" />
               </Button>
               <Button asChild variant="hero-outline" size="xl" className="w-full sm:w-auto">
                 <a href="tel:+49800123456">
@@ -113,6 +128,8 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
+
+      <ConsultationModal open={modalOpen} onOpenChange={setModalOpen} />
     </section>
   );
 };
