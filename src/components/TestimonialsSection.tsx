@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
             <div>
               <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-4">Kundenstimmen</p>
               <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight max-w-3xl">
-                Betriebe wie Ihrer zeigen, dass ein professioneller Online-Auftritt <span className="italic text-primary">spuerbar helfen kann</span>
+                Betriebe wie Ihrer zeigen, dass ein professioneller Online-Auftritt <span className="italic text-primary">spürbar helfen kann</span>
               </h2>
             </div>
             <p className="text-muted-foreground font-body max-w-sm lg:text-right text-base sm:text-lg">

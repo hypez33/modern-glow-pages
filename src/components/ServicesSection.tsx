@@ -10,9 +10,9 @@ const services = [
     title: "One Pager",
     price: "ab 699 €",
     fit: "Einzelunternehmer, kleine Betriebe und der schnelle Start.",
-    result: "Ideal fuer Handwerksbetriebe, die schnell professionell online sichtbar sein wollen.",
+    result: "Ideal für Handwerksbetriebe, die schnell professionell online sichtbar sein wollen.",
     points: [
-      "Uebersichtliche Website auf einer Seite",
+      "Übersichtliche Website auf einer Seite",
       "Mobil optimiert",
       "Klare Darstellung Ihrer Leistungen",
       "Kontaktformular inklusive",
@@ -23,13 +23,13 @@ const services = [
     icon: LayoutTemplate,
     title: "Multi Page Website",
     price: "ab 1.399 €",
-    fit: "Betriebe mit mehreren Leistungen, groesserem Einzugsgebiet oder wachsendem Anspruch.",
-    result: "Fuer Handwerksbetriebe, die mehrere Leistungen professionell darstellen und mehr Vertrauen aufbauen wollen.",
+    fit: "Betriebe mit mehreren Leistungen, größerem Einzugsgebiet oder wachsendem Anspruch.",
+    result: "Für Handwerksbetriebe, die mehrere Leistungen professionell darstellen und mehr Vertrauen aufbauen wollen.",
     points: [
       "Mehrseitige Website mit klarer Struktur",
-      "Startseite, Leistungsseiten, Ueber-uns und Kontakt",
+      "Startseite, Leistungsseiten, Über-uns und Kontakt",
       "Mobil optimiert",
-      "Sauberer Seitenaufbau fuer bessere Nutzerfuehrung",
+      "Sauberer Seitenaufbau für bessere Nutzerführung",
       "Kontaktformular inklusive",
     ],
     highlighted: true,
@@ -39,12 +39,12 @@ const services = [
     title: "Individualentwicklung",
     price: "Preis auf Anfrage",
     fit: "Anspruchsvolle Projekte mit individuellen Anforderungen.",
-    result: "Fuer Betriebe mit besonderen Anforderungen, individuellen Funktionen oder einem umfangreicheren digitalen Auftritt.",
+    result: "Für Betriebe mit besonderen Anforderungen, individuellen Funktionen oder einem umfangreicheren digitalen Auftritt.",
     points: [
       "Individuelle Konzeption und Umsetzung",
-      "Massgeschneiderte Seitenstruktur",
-      "Spezielle Funktionen und Anforderungen moeglich",
-      "Persoenliche Abstimmung und individuelle Kalkulation",
+      "Maßgeschneiderte Seitenstruktur",
+      "Spezielle Funktionen und Anforderungen möglich",
+      "Persönliche Abstimmung und individuelle Kalkulation",
     ],
   },
 ];
@@ -58,9 +58,9 @@ const ServicesSection = () => {
         <ScrollReveal>
           <div className="max-w-3xl mb-8 sm:mb-10 lg:mb-12">
             <p className="text-sm font-body tracking-[0.2em] uppercase text-accent mb-4">Leistungen und Pakete</p>
-            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">Passende Website-Loesungen fuer Handwerksbetriebe</h2>
+            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">Passende Website-Lösungen für Handwerksbetriebe</h2>
             <p className="text-secondary-foreground/70 font-body text-lg sm:text-xl leading-relaxed">
-              Klare Pakete, klarer Leistungsumfang. Damit Sie genau die Loesung waehlen, die zu Ihrem Betrieb passt.
+              Klare Pakete, klarer Leistungsumfang. Damit Sie genau die Lösung wählen, die zu Ihrem Betrieb passt.
             </p>
           </div>
         </ScrollReveal>
@@ -93,7 +93,7 @@ const ServicesSection = () => {
                   {service.price}
                 </p>
                 <p className={`text-base font-body mb-2 ${service.highlighted ? "text-accent-foreground/85" : "text-secondary-foreground/70"}`}>
-                  <strong>Geeignet fuer:</strong> {service.fit}
+                  <strong>Geeignet für:</strong> {service.fit}
                 </p>
                 <p className={`text-base font-body mb-5 ${service.highlighted ? "text-accent-foreground/85" : "text-secondary-foreground/70"}`}>
                   <strong>Ergebnis:</strong> {service.result}
@@ -120,7 +120,7 @@ const ServicesSection = () => {
         <ScrollReveal>
           <div className="mt-7 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between rounded-xl neu-surface-soft p-4 sm:p-5">
             <p className="font-body text-base sm:text-lg text-secondary-foreground/75">
-              Unsicher, welche Loesung fuer Ihren Betrieb sinnvoll ist? Wir klaeren das kurz mit Ihnen und empfehlen nur, was wirklich passt.
+              Unsicher, welche Lösung für Ihren Betrieb sinnvoll ist? Wir klären das kurz mit Ihnen und empfehlen nur, was wirklich passt.
             </p>
             <Button
               variant="hero"

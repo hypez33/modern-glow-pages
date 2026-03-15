@@ -16,12 +16,12 @@ const proofItems = [
   {
     icon: UserRoundCheck,
     title: "Fester Ansprechpartner",
-    text: "Kein Ticketsystem, kein Weiterreichen, kein unnoetiges Technik-Wirrwarr.",
+    text: "Kein Ticketsystem, kein Weiterreichen, kein unnötiges Technik-Wirrwarr.",
   },
   {
     icon: Clock3,
     title: "Schnell online",
-    text: "Klare Ablaeufe, kurze Wege und eine Umsetzung ohne unnoetige Verzoegerungen.",
+    text: "Klare Abläufe, kurze Wege und eine Umsetzung ohne unnötige Verzögerungen.",
   },
 ];
 
@@ -32,7 +32,7 @@ const TrustBarSection = () => {
         <ScrollReveal>
           <div className="rounded-2xl neu-surface p-5 sm:p-6">
             <h2 className="text-[2rem] sm:text-4xl lg:text-[3rem] leading-tight mb-6">
-              Darum funktioniert das fuer Handwerksbetriebe
+              Darum funktioniert das für Handwerksbetriebe
             </h2>
 
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

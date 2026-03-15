@@ -16,9 +16,9 @@ const CTASection = () => {
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-5">Finaler Check</p>
-            <h2 className="font-display text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-5">Jetzt den naechsten Schritt machen</h2>
+            <h2 className="font-display text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-5">Jetzt den nächsten Schritt machen</h2>
             <p className="text-muted-foreground font-body text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-              Mit dem 60-Sekunden-Check sehen Sie schnell, welche Website-Loesung fuer Ihren Betrieb sinnvoll ist.
+              Mit dem 60-Sekunden-Check sehen Sie schnell, welche Website-Lösung für Ihren Betrieb sinnvoll ist.
             </p>
 
             <div className="grid gap-3 sm:grid-cols-2 max-w-2xl mx-auto">

@@ -14,7 +14,7 @@ const FooterSection = () => {
                 Handwerk<span className="text-primary">digital</span>
               </a>
               <p className="text-sm text-muted-foreground font-body mt-4 max-w-xs leading-relaxed">
-                Websites fuer Handwerksbetriebe in Deutschland. Klar, schnell und auf mobile Anfragen ausgerichtet.
+                Websites für Handwerksbetriebe in Deutschland. Klar, schnell und auf mobile Anfragen ausgerichtet.
               </p>
             </div>
 

@@ -43,9 +43,9 @@ const FAQSection = () => {
         <ScrollReveal>
           <div className="max-w-2xl mb-8 sm:mb-10">
             <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-4">FAQ</p>
-            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">Haeufige Fragen, kurz beantwortet</h2>
+            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">Häufige Fragen, kurz beantwortet</h2>
             <p className="font-body text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Genau diese Punkte hoeren wir in fast jedem Erstgespraech.
+              Genau diese Punkte hören wir in fast jedem Erstgespräch.
             </p>
           </div>
         </ScrollReveal>

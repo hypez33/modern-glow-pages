@@ -5,8 +5,8 @@ const painPoints = [
   "Die bestehende Website wirkt alt und baut beim ersten Klick kein Vertrauen auf.",
   "Bei Google oder in Maps ist der Betrieb kaum sichtbar.",
   "Leistungen sind unklar dargestellt und unterscheiden sich kaum vom Wettbewerb.",
-  "Kunden wissen nicht sofort, was angeboten wird und wie sie Kontakt aufnehmen koennen.",
-  "Anfragen kommen fast nur ueber Empfehlungen statt zusaetzlich planbar ueber die Website.",
+  "Kunden wissen nicht sofort, was angeboten wird und wie sie Kontakt aufnehmen können.",
+  "Anfragen kommen fast nur über Empfehlungen statt zusätzlich planbar über die Website.",
 ];
 
 const ProblemSection = () => {
@@ -25,7 +25,7 @@ const ProblemSection = () => {
               Viele Handwerksbetriebe verlieren online Anfragen, <span className="italic text-accent">ohne es zu merken.</span>
             </h2>
             <p className="mt-4 text-lg sm:text-xl font-body text-muted-foreground max-w-2xl leading-relaxed">
-              Nicht weil die Arbeit nicht gut ist. Sondern weil der erste Eindruck online nicht ueberzeugt.
+              Nicht weil die Arbeit nicht gut ist. Sondern weil der erste Eindruck online nicht überzeugt.
             </p>
           </div>
         </ScrollReveal>
@@ -43,7 +43,7 @@ const ProblemSection = () => {
         <ScrollReveal>
           <div className="mt-7 rounded-xl neu-surface px-4 py-4 sm:px-5">
             <p className="text-base sm:text-lg font-body text-foreground leading-relaxed">
-              <strong>Die Folge:</strong> Interessenten springen ab, bevor sie ueberhaupt anrufen oder eine Anfrage senden.
+              <strong>Die Folge:</strong> Interessenten springen ab, bevor sie überhaupt anrufen oder eine Anfrage senden.
             </p>
           </div>
         </ScrollReveal>

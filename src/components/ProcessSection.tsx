@@ -4,7 +4,7 @@ const steps = [
   {
     number: "01",
     title: "Kurzes Kennenlernen",
-    text: "In 15 Minuten klaeren wir Gewerk, Region, Ziel und Ihre aktuelle Ausgangslage.",
+    text: "In 15 Minuten klären wir Gewerk, Region, Ziel und Ihre aktuelle Ausgangslage.",
   },
   {
     number: "02",
@@ -14,7 +14,7 @@ const steps = [
   {
     number: "03",
     title: "Umsetzung und Freigabe",
-    text: "Sie sehen den Stand der Website Schritt fuer Schritt und geben nur das frei, was fuer Sie passt.",
+    text: "Sie sehen den Stand der Website Schritt für Schritt und geben nur das frei, was für Sie passt.",
   },
   {
     number: "04",
@@ -30,12 +30,12 @@ const ProcessSection = () => {
         <ScrollReveal>
           <div className="max-w-2xl mb-8 sm:mb-10">
             <p className="text-sm font-body tracking-[0.2em] uppercase text-primary mb-4">Ablauf</p>
-            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">So laeuft die Zusammenarbeit ab</h2>
+            <h2 className="text-[2.05rem] sm:text-4xl lg:text-[3.2rem] leading-tight mb-4">So läuft die Zusammenarbeit ab</h2>
             <p className="font-body text-lg sm:text-xl text-muted-foreground leading-relaxed">
               Einfach. Klar. Ohne Projekt-Chaos.
             </p>
             <p className="mt-3 font-body text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Sie wissen zu jedem Zeitpunkt, was als Naechstes passiert. Kein Fachchinesisch, keine unnoetig langen Abstimmungen.
+              Sie wissen zu jedem Zeitpunkt, was als Nächstes passiert. Kein Fachchinesisch, keine unnötig langen Abstimmungen.
             </p>
           </div>
         </ScrollReveal>

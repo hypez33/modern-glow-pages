@@ -43,11 +43,11 @@ const HeroSection = () => {
             transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <h1 className="text-[2.4rem] leading-[1.05] sm:text-5xl lg:text-[4rem] xl:text-[4.6rem] tracking-tight mb-3 sm:mb-6">
-              Websites fuer Handwerksbetriebe in Deutschland, die Vertrauen schaffen und neue Anfragen moeglich machen
+              Websites für Handwerksbetriebe in Deutschland, die Vertrauen schaffen und neue Anfragen möglich machen
             </h1>
 
             <p className="text-base sm:text-xl lg:text-[1.35rem] text-muted-foreground font-body max-w-2xl leading-relaxed mb-4 sm:mb-8">
-              Ob Sie noch keine Website haben oder Ihr aktueller Auftritt nicht mehr ueberzeugt: Wir erstellen moderne Websites fuer Handwerksbetriebe in Deutschland, die professionell wirken, auf dem Smartphone sauber funktionieren und den Kontakt fuer potenzielle Kunden einfacher machen.
+              Ob Sie noch keine Website haben oder Ihr aktueller Auftritt nicht mehr überzeugt: Wir erstellen moderne Websites für Handwerksbetriebe in Deutschland, die professionell wirken, auf dem Smartphone sauber funktionieren und den Kontakt für potenzielle Kunden einfacher machen.
             </p>
 
             <ul className="flex flex-wrap gap-x-4 gap-y-1.5 text-sm sm:text-lg font-body text-foreground/85 mb-5 sm:mb-8">
@@ -70,7 +70,7 @@ const HeroSection = () => {
               </Button>
             </div>
             <p className="text-xs sm:text-base text-muted-foreground font-body mt-2 sm:mt-3">
-              Kostenlos · Unverbindlich · Speziell fuer Handwerksbetriebe in Deutschland
+              Kostenlos · Unverbindlich · Speziell für Handwerksbetriebe in Deutschland
             </p>
           </motion.div>
 
@@ -115,7 +115,7 @@ const HeroSection = () => {
             <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
               <p className="font-display text-xl sm:text-2xl lg:text-[1.6rem] text-foreground leading-none">380+</p>
               <p className="mt-1 text-[11px] leading-tight text-muted-foreground font-body sm:text-sm">
-                umgesetzte Websites fuer Handwerk und regionalen Mittelstand
+                umgesetzte Websites für Handwerk und regionalen Mittelstand
               </p>
             </div>
             <div className="rounded-lg sm:rounded-xl neu-surface-soft px-2.5 py-2 sm:px-3.5 sm:py-2.5">
@@ -135,10 +135,10 @@ const HeroSection = () => {
 
         <div className="mt-6 sm:mt-8 rounded-xl neu-surface px-4 py-3 sm:px-5 sm:py-4">
           <p className="text-base sm:text-lg font-body font-semibold text-foreground leading-relaxed">
-            Fuer Handwerksbetriebe in Deutschland, die online professionell auftreten und leichter gefunden werden wollen
+            Für Handwerksbetriebe in Deutschland, die online professionell auftreten und leichter gefunden werden wollen
           </p>
           <p className="mt-2 text-sm sm:text-base font-body text-muted-foreground leading-relaxed">
-            Ob Elektriker, Dachdecker, SHK, Maler, Gartenbau, Trockenbau oder Innenausbau: Wer heute online nicht ueberzeugend auftritt, wird oft gar nicht erst kontaktiert.
+            Ob Elektriker, Dachdecker, SHK, Maler, Gartenbau, Trockenbau oder Innenausbau: Wer heute online nicht überzeugend auftritt, wird oft gar nicht erst kontaktiert.
           </p>
         </div>
       </div>
