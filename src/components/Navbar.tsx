@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
-import NeumorphismPresetToggle from "@/components/NeumorphismPresetToggle";
 import ConsultationModal from "@/components/ConsultationModal";
 
 const Navbar = () => {
