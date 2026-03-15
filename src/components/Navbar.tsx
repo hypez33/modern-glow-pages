@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
-import NeumorphismPresetToggle from "@/components/NeumorphismPresetToggle";
 import ConsultationModal from "@/components/ConsultationModal";
 
 const Navbar = () => {
@@ -25,8 +24,7 @@ const Navbar = () => {
           Handwerk<span className="text-primary">digital</span>
         </a>
 
-        <div className="hidden md:flex items-center gap-7">
-          <NeumorphismPresetToggle />
+        <div className="hidden md:flex items-center gap-5">
           <ThemeToggle />
           <Button size="default" className="ml-1" onClick={() => setModalOpen(true)}>
             Kostenlosen Check starten
