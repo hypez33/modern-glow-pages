@@ -80,8 +80,10 @@ const wrap = (min: number, max: number, value: number) => {
 const FeatureCarouselSection = () => {
   const [step, setStep] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const currentIndex = ((step % FEATURES.length) + FEATURES.length) % FEATURES.length;
+  const itemHeight = isMobile ? 68 : ITEM_HEIGHT;
 
   const nextStep = useCallback(() => {
     setStep((prev) => prev + 1);
@@ -93,6 +95,14 @@ const FeatureCarouselSection = () => {
     const interval = window.setInterval(nextStep, AUTO_PLAY_INTERVAL);
     return () => window.clearInterval(interval);
   }, [isPaused, nextStep]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 639px)");
+    const syncViewport = () => setIsMobile(mediaQuery.matches);
+    syncViewport();
+    mediaQuery.addEventListener("change", syncViewport);
+    return () => mediaQuery.removeEventListener("change", syncViewport);
+  }, []);
 
   const handleChipClick = (index: number) => {
     const diff = (index - currentIndex + FEATURES.length) % FEATURES.length;
@@ -137,17 +147,17 @@ const FeatureCarouselSection = () => {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="order-2 w-full lg:order-1 lg:w-[38%] min-h-[360px] md:min-h-[430px] lg:h-auto relative z-20 flex flex-col justify-center overflow-hidden px-5 sm:px-8 lg:px-10 py-8 sm:py-10 bg-secondary/65 border-t lg:border-t-0 lg:border-b-0 lg:border-r border-border/50">
+            <div className="order-2 w-full lg:order-1 lg:w-[38%] min-h-[300px] sm:min-h-[360px] md:min-h-[430px] lg:h-auto relative z-20 flex flex-col justify-center overflow-hidden px-4 sm:px-8 lg:px-10 py-6 sm:py-10 bg-secondary/65 border-t lg:border-t-0 lg:border-b-0 lg:border-r border-border/50">
               <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-secondary via-secondary/90 to-transparent z-30" />
               <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-secondary via-secondary/90 to-transparent z-30" />
 
-              <div className="relative z-20 mb-6">
+              <div className="relative z-20 mb-4 sm:mb-6">
                 <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.28em] bg-accent/15 text-foreground border border-accent/20">
                   Interaktive Übersicht
                 </span>
               </div>
 
-              <div className="relative w-full h-[380px] sm:h-[430px] lg:h-[470px] flex items-center justify-start z-20">
+              <div className="relative w-full h-[296px] sm:h-[430px] lg:h-[470px] flex items-center justify-start z-20">
                 {FEATURES.map((feature, index) => {
                   const isActive = index === currentIndex;
                   const distance = index - currentIndex;
@@ -157,9 +167,9 @@ const FeatureCarouselSection = () => {
                   return (
                     <motion.div
                       key={feature.id}
-                      style={{ height: ITEM_HEIGHT, width: "100%" }}
+                      style={{ height: itemHeight, width: "100%" }}
                       animate={{
-                        y: wrappedDistance * ITEM_HEIGHT,
+                        y: wrappedDistance * itemHeight,
                         opacity: 1 - Math.abs(wrappedDistance) * 0.23,
                         scale: isActive ? 1 : 0.96,
                       }}
@@ -175,7 +185,7 @@ const FeatureCarouselSection = () => {
                         type="button"
                         onClick={() => handleChipClick(index)}
                         className={cn(
-                          "w-full text-left rounded-full px-4 sm:px-5 py-4 sm:py-[1.05rem] border transition-all duration-500 flex items-center gap-3 sm:gap-4",
+                          "w-full text-left rounded-full px-3.5 sm:px-5 py-3 sm:py-[1.05rem] border transition-all duration-500 flex items-center gap-2.5 sm:gap-4",
                           isActive
                             ? "bg-foreground text-background border-foreground shadow-elevated"
                             : "bg-background/60 text-foreground/60 border-border/70 hover:text-foreground hover:border-foreground/20"
@@ -184,7 +194,7 @@ const FeatureCarouselSection = () => {
                       >
                         <span
                           className={cn(
-                            "w-10 h-10 rounded-full flex items-center justify-center border transition-colors duration-500",
+                            "w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border transition-colors duration-500",
                             isActive
                               ? "bg-accent text-accent-foreground border-accent"
                               : "bg-secondary text-foreground/60 border-border"
@@ -192,7 +202,7 @@ const FeatureCarouselSection = () => {
                         >
                           <Icon className="w-[18px] h-[18px]" />
                         </span>
-                        <span className="font-body text-sm sm:text-[15px] tracking-tight uppercase whitespace-nowrap">
+                        <span className="font-body text-[12px] sm:text-[15px] tracking-tight uppercase whitespace-nowrap">
                           {feature.label}
                         </span>
                       </button>
@@ -202,10 +212,10 @@ const FeatureCarouselSection = () => {
               </div>
             </div>
 
-            <div className="order-1 lg:order-2 flex-1 min-h-[500px] md:min-h-[580px] lg:min-h-0 relative flex items-center justify-center p-5 sm:p-8 lg:p-10 bg-background">
+            <div className="order-1 lg:order-2 flex-1 min-h-[390px] sm:min-h-[500px] md:min-h-[580px] lg:min-h-0 relative flex items-center justify-center p-4 sm:p-8 lg:p-10 bg-background">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--accent)/0.14),transparent_28%),radial-gradient(circle_at_bottom_left,hsl(var(--foreground)/0.08),transparent_30%)]" />
 
-              <div className="relative w-full max-w-[520px] aspect-[4/5] flex items-center justify-center">
+              <div className="relative w-full max-w-[320px] sm:max-w-[520px] aspect-[4/5] flex items-center justify-center">
                 {FEATURES.map((feature, index) => {
                   const status = getCardStatus(index);
                   const isActive = status === "active";
@@ -250,23 +260,23 @@ const FeatureCarouselSection = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 10 }}
                             transition={{ duration: 0.28 }}
-                            className="absolute inset-x-0 bottom-0 p-6 sm:p-8 md:p-10"
+                            className="absolute inset-x-0 bottom-0 p-4 sm:p-8 md:p-10"
                           >
                             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[11px] uppercase tracking-[0.25em] text-white/85 backdrop-blur-md mb-4">
                               <span className="w-2 h-2 rounded-full bg-accent shadow-[0_0_14px_hsl(var(--accent))]" />
                               {feature.eyebrow}
                             </div>
-                            <h3 className="text-white text-2xl sm:text-[2rem] leading-tight mb-3 max-w-[24rem]">
+                            <h3 className="text-white text-[1.3rem] sm:text-[2rem] leading-tight mb-3 max-w-[24rem]">
                               {feature.title}
                             </h3>
-                            <p className="text-white/82 font-body text-base sm:text-lg leading-relaxed max-w-[29rem]">
+                            <p className="text-white/82 font-body text-[0.95rem] sm:text-lg leading-relaxed max-w-[29rem]">
                               {feature.description}
                             </p>
                           </motion.div>
                         )}
                       </AnimatePresence>
 
-                      <div className={cn("absolute top-5 left-5 sm:top-6 sm:left-6 transition-opacity duration-300", isActive ? "opacity-100" : "opacity-0")}>
+                      <div className={cn("absolute top-4 left-4 sm:top-6 sm:left-6 transition-opacity duration-300", isActive ? "opacity-100" : "opacity-0")}>
                         <div className="inline-flex items-center gap-2 rounded-full bg-black/28 backdrop-blur-md border border-white/10 px-3 py-1.5 text-white/88 text-[11px] uppercase tracking-[0.24em]">
                           {String(index + 1).padStart(2, "0")} / {String(FEATURES.length).padStart(2, "0")}
                         </div>
