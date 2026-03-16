@@ -1,14 +1,13 @@
 import {
   motion,
-  useMotionValueEvent,
+  useMotionValue,
   useReducedMotion,
-  useScroll,
-  useSpring,
   useTransform,
   type MotionValue,
+  AnimatePresence,
 } from "framer-motion";
 import { AlertTriangle, ArrowDown } from "lucide-react";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 
 const painPoints = [
