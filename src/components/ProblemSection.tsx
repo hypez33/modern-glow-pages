@@ -138,11 +138,11 @@ const ProblemCarouselCard = ({
 };
 
 const ProblemSection = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
   const reduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
+    target: trackRef,
     offset: ["start start", "end end"],
   });
   const carouselProgress = useSpring(useTransform(scrollYProgress, [0, 1], [0, painPoints.length - 1]), {
@@ -157,11 +157,7 @@ const ProblemSection = () => {
   });
 
   return (
-    <section
-      id="probleme"
-      ref={sectionRef}
-      className="relative overflow-hidden py-14 sm:py-16 lg:py-24"
-    >
+    <section id="probleme" className="relative overflow-hidden py-14 sm:py-16 lg:py-20">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary via-muted to-background" />
       <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-secondary to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
@@ -180,10 +176,11 @@ const ProblemSection = () => {
         </ScrollReveal>
 
         <div
+          ref={trackRef}
           className="relative mt-10 sm:mt-12"
-          style={{ height: `calc(100vh + ${(painPoints.length - 1) * 18}vh)` }}
+          style={{ height: `calc(100vh + ${(painPoints.length - 1) * 34}vh)` }}
         >
-          <div className="sticky top-20 flex min-h-[calc(100vh-5rem)] items-center">
+          <div className="sticky top-0 flex min-h-screen items-center">
             <ScrollReveal className="w-full">
               <div className="grid gap-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
                 <div className="max-w-xl">
@@ -215,6 +212,12 @@ const ProblemSection = () => {
                       </div>
                     ))}
                   </div>
+
+                  <div className="mt-6 rounded-2xl border border-border/65 bg-background/78 p-4 shadow-card backdrop-blur-sm sm:p-5">
+                    <p className="text-sm font-body leading-relaxed text-foreground sm:text-base">
+                      <strong>Die Folge:</strong> Interessenten springen ab, bevor sie ueberhaupt anrufen oder eine Anfrage senden.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="relative mx-auto w-full max-w-[42rem]" style={{ perspective: "1800px" }}>
@@ -235,14 +238,6 @@ const ProblemSection = () => {
             </ScrollReveal>
           </div>
         </div>
-
-        <ScrollReveal>
-          <div className="mt-10 rounded-2xl border border-border/65 bg-background/78 p-5 shadow-card backdrop-blur-sm sm:p-6">
-            <p className="text-base font-body leading-relaxed text-foreground sm:text-lg">
-              <strong>Die Folge:</strong> Interessenten springen ab, bevor sie ueberhaupt anrufen oder eine Anfrage senden.
-            </p>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
