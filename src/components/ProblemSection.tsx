@@ -5,7 +5,7 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
-import { AlertTriangle, ArrowDown } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import ScrollReveal from "./ScrollReveal";
 
