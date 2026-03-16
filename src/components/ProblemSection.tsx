@@ -260,37 +260,7 @@ const ProblemSection = () => {
           <div className="flex items-center">
 
             <ScrollReveal className="w-full">
-              <div className="grid gap-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
-                <div className="max-w-xl">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/70 px-3 py-2 text-sm font-body text-foreground shadow-soft">
-                    <ArrowDown className="h-4 w-4 text-accent" />
-                    Scrollen, um jeden Engpass einzeln nach vorne zu holen
-                  </div>
-
-                  <p className="mt-5 text-base font-body leading-relaxed text-muted-foreground sm:text-lg">
-                    Statt eines langen Kartenblocks sehen Besucher hier Punkt fuer Punkt, wo die Website aktuell Vertrauen, Sichtbarkeit oder direkte Kontakte verliert.
-                  </p>
-
-                  <div className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-2">
-                    {painPoints.map((point, index) => (
-                      <div
-                        key={point.label}
-                        className={`rounded-2xl border px-3 py-3 transition-all duration-500 ${
-                          activeIndex === index
-                            ? "border-primary/30 bg-background/85 shadow-card"
-                            : "border-border/50 bg-background/45"
-                        }`}
-                      >
-                        <p className="text-[11px] font-body uppercase tracking-[0.22em] text-muted-foreground">
-                          0{index + 1}
-                        </p>
-                        <p className="mt-2 text-sm font-body leading-snug text-foreground sm:text-[0.95rem]">
-                          {point.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="grid gap-7 lg:items-center lg:gap-10">
 
                 <div className="relative mx-auto w-full max-w-[42rem]" style={{ perspective: "1800px" }}>
                   <div className="relative h-[24rem] sm:h-[28rem] lg:h-[32rem]">
