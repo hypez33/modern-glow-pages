@@ -4,7 +4,6 @@ import {
   useReducedMotion,
   useTransform,
   type MotionValue,
-  AnimatePresence,
 } from "framer-motion";
 import { AlertTriangle, ArrowDown } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
