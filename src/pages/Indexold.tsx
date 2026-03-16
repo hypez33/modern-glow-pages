@@ -3,7 +3,6 @@ import TrustBarSection from "@/components/TrustBarSection";
 import ClientLogoSlider from "@/components/ClientLogoSlider";
 import ProblemSection from "@/components/ProblemSection";
 import BenefitsSection from "@/components/BenefitsSection";
-import FeatureCarouselSection from "@/components/FeatureCarouselSection";
 import ProcessSection from "@/components/ProcessSection";
 import PhotoBreakSection from "@/components/PhotoBreakSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -21,7 +20,6 @@ const Index = () => {
       <ClientLogoSlider />
       <ProblemSection />
       <BenefitsSection />
-      <FeatureCarouselSection />
       <ProcessSection />
       <PhotoBreakSection />
       <ServicesSection />
