@@ -2,11 +2,12 @@ import {
   motion,
   useMotionValue,
   useReducedMotion,
+  useScroll,
   useTransform,
   type MotionValue,
 } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import ScrollReveal from "./ScrollReveal";
 
 const painPoints = [
@@ -81,12 +82,13 @@ const ProblemCarouselCard = ({
     [-1.15, 0, 1.15],
     reducedMotion ? [0, 0, 0] : [-6, 0, 6]
   );
-  const blur = useTransform(relative, (value) => `blur(${Math.max(0, Math.abs(value) - 0.05) * 4.2}px)`);
+  const blur = useTransform(relative, (value) =>
+    `blur(${Math.max(0, Math.abs(value) - 0.05) * 4.2}px)`
+  );
   const shadow = useTransform(relative, (value) => {
     const intensity = Math.max(0.3, 1 - Math.min(Math.abs(value), 1.15) * 0.55);
     return `0 ${Math.round(14 + intensity * 16)}px ${Math.round(38 + intensity * 24)}px hsl(var(--foreground) / ${(
-      0.08 +
-      intensity * 0.08
+      0.08 + intensity * 0.08
     ).toFixed(3)})`;
   });
 
@@ -135,161 +137,111 @@ const ProblemCarouselCard = ({
   );
 };
 
-const ProblemSection = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const reduceMotion = useReducedMotion();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const cooldownRef = useRef(false);
-  const carouselProgress = useMotionValue(0);
+/* ── Dot indicator ── */
+const DotIndicator = ({ progress, total }: { progress: MotionValue<number>; total: number }) => {
+  return (
+    <div className="flex items-center gap-2">
+      {Array.from({ length: total }).map((_, i) => (
+        <DotItem key={i} index={i} progress={progress} />
+      ))}
+    </div>
+  );
+};
 
-  // Wheel-based snapping with cooldown
-  const handleWheel = useCallback((e: WheelEvent) => {
-    if (!sectionRef.current) return;
-    const rect = sectionRef.current.getBoundingClientRect();
-    // Only intercept when section is in view
-    if (rect.top > window.innerHeight * 0.3 || rect.bottom < window.innerHeight * 0.5) return;
-
-    const delta = e.deltaY;
-    if (Math.abs(delta) < 15) return;
-    if (cooldownRef.current) {
-      e.preventDefault();
-      return;
-    }
-
-    const direction = delta > 0 ? 1 : -1;
-    setActiveIndex((prev) => {
-      const next = Math.max(0, Math.min(painPoints.length - 1, prev + direction));
-      if (next !== prev) {
-        e.preventDefault();
-        cooldownRef.current = true;
-        // Animate the motion value
-        const start = carouselProgress.get();
-        const target = next;
-        const duration = 400;
-        const startTime = performance.now();
-        const animate = (now: number) => {
-          const elapsed = now - startTime;
-          const t = Math.min(1, elapsed / duration);
-          const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
-          carouselProgress.set(start + (target - start) * eased);
-          if (t < 1) requestAnimationFrame(animate);
-        };
-        requestAnimationFrame(animate);
-        setTimeout(() => { cooldownRef.current = false; }, 600);
-        return next;
-      }
-      return prev;
-    });
-  }, [carouselProgress]);
-
-  // Touch-based snapping with cooldown
-  const touchStartY = useRef(0);
-  const handleTouchStart = useCallback((e: TouchEvent) => {
-    touchStartY.current = e.touches[0].clientY;
-  }, []);
-
-  const handleTouchEnd = useCallback((e: TouchEvent) => {
-    if (!sectionRef.current || cooldownRef.current) return;
-    const rect = sectionRef.current.getBoundingClientRect();
-    if (rect.top > window.innerHeight * 0.3 || rect.bottom < window.innerHeight * 0.5) return;
-
-    const deltaY = touchStartY.current - e.changedTouches[0].clientY;
-    if (Math.abs(deltaY) < 30) return;
-
-    const direction = deltaY > 0 ? 1 : -1;
-    setActiveIndex((prev) => {
-      const next = Math.max(0, Math.min(painPoints.length - 1, prev + direction));
-      if (next !== prev) {
-        cooldownRef.current = true;
-        const start = carouselProgress.get();
-        const target = next;
-        const duration = 400;
-        const startTime = performance.now();
-        const animate = (now: number) => {
-          const elapsed = now - startTime;
-          const t = Math.min(1, elapsed / duration);
-          const eased = 1 - Math.pow(1 - t, 3);
-          carouselProgress.set(start + (target - start) * eased);
-          if (t < 1) requestAnimationFrame(animate);
-        };
-        requestAnimationFrame(animate);
-        setTimeout(() => { cooldownRef.current = false; }, 600);
-        return next;
-      }
-      return prev;
-    });
-  }, [carouselProgress]);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    el.addEventListener("wheel", handleWheel, { passive: false });
-    el.addEventListener("touchstart", handleTouchStart, { passive: true });
-    el.addEventListener("touchend", handleTouchEnd, { passive: true });
-    return () => {
-      el.removeEventListener("wheel", handleWheel);
-      el.removeEventListener("touchstart", handleTouchStart);
-      el.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [handleWheel, handleTouchStart, handleTouchEnd]);
+const DotItem = ({ index, progress }: { index: number; progress: MotionValue<number> }) => {
+  const scale = useTransform(progress, (v) => {
+    const dist = Math.abs(v - index);
+    return dist < 0.5 ? 1.35 : 0.85;
+  });
+  const dotOpacity = useTransform(progress, (v) => {
+    const dist = Math.abs(v - index);
+    return dist < 0.5 ? 1 : 0.35;
+  });
+  const width = useTransform(progress, (v) => {
+    const dist = Math.abs(v - index);
+    return dist < 0.5 ? 24 : 8;
+  });
 
   return (
-    <section
-      id="probleme"
-      ref={sectionRef}
-      className="relative overflow-hidden py-14 sm:py-16 lg:py-24"
-    >
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary via-muted to-background" />
-      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-secondary to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
+    <motion.div
+      className="h-2 rounded-full bg-accent"
+      style={{ width, scale, opacity: dotOpacity }}
+    />
+  );
+};
 
-      <div className="container relative z-10 mx-auto">
-        <ScrollReveal>
-          <div className="max-w-3xl">
-            <p className="mb-4 text-sm font-body uppercase tracking-[0.2em] text-accent">Wenn es aktuell stockt</p>
-            <h2 className="text-[2.05rem] leading-tight text-foreground sm:text-4xl lg:text-[3.2rem]">
-              Viele Betriebe verlieren online Anfragen, <span className="italic text-accent">ohne es zu merken.</span>
-            </h2>
-            <p className="mt-4 max-w-2xl text-lg font-body leading-relaxed text-muted-foreground sm:text-xl">
-              Das Problem ist selten die Arbeit auf der Baustelle. Das Problem ist der erste Eindruck davor.
-            </p>
-          </div>
-        </ScrollReveal>
+const ProblemSection = () => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
 
-        <div className="relative mt-10 sm:mt-12">
-          <div className="flex items-center">
+  // scrollYProgress goes 0→1 as the tall wrapper scrolls through
+  const { scrollYProgress } = useScroll({
+    target: wrapperRef,
+    offset: ["start start", "end end"],
+  });
 
-            <ScrollReveal className="w-full">
-              <div className="grid gap-7 lg:items-center lg:gap-10">
+  // Map scroll progress to card index (0 → last)
+  const carouselProgress = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, painPoints.length - 1]
+  );
 
-                <div className="relative mx-auto w-full max-w-[42rem]" style={{ perspective: "1800px" }}>
-                  <div className="relative h-[24rem] sm:h-[28rem] lg:h-[32rem]">
-                    {painPoints.map((point, index) => (
-                      <ProblemCarouselCard
-                        key={point.label}
-                        index={index}
-                        total={painPoints.length}
-                        point={point}
-                        progress={carouselProgress}
-                        reducedMotion={reduceMotion}
-                      />
-                    ))}
-                  </div>
-                </div>
+  // Height: 100vh per card creates enough scroll room
+  const scrollHeight = `${painPoints.length * 100}vh`;
+
+  return (
+    <div ref={wrapperRef} id="probleme" style={{ height: scrollHeight }} className="relative">
+      <div className="sticky top-0 h-screen overflow-hidden">
+        {/* Background gradients */}
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary via-muted to-background" />
+        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-secondary to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
+
+        <div className="container relative z-10 mx-auto flex h-full flex-col justify-center py-14 sm:py-16 lg:py-20">
+          <ScrollReveal>
+            <div className="max-w-3xl">
+              <p className="mb-4 text-sm font-body uppercase tracking-[0.2em] text-accent">
+                Wenn es aktuell stockt
+              </p>
+              <h2 className="text-[2.05rem] leading-tight text-foreground sm:text-4xl lg:text-[3.2rem]">
+                Viele Betriebe verlieren online Anfragen,{" "}
+                <span className="italic text-accent">ohne es zu merken.</span>
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg font-body leading-relaxed text-muted-foreground sm:text-xl">
+                Das Problem ist selten die Arbeit auf der Baustelle. Das Problem ist der erste Eindruck davor.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Card slider */}
+          <div className="relative mt-8 sm:mt-10 flex-1 min-h-0">
+            <div
+              className="relative mx-auto w-full max-w-[42rem] h-full max-h-[32rem]"
+              style={{ perspective: "1800px" }}
+            >
+              <div className="relative h-full">
+                {painPoints.map((point, index) => (
+                  <ProblemCarouselCard
+                    key={point.label}
+                    index={index}
+                    total={painPoints.length}
+                    point={point}
+                    progress={carouselProgress}
+                    reducedMotion={reduceMotion}
+                  />
+                ))}
               </div>
-            </ScrollReveal>
+            </div>
+
+            {/* Dots */}
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2">
+              <DotIndicator progress={carouselProgress} total={painPoints.length} />
+            </div>
           </div>
         </div>
-
-        <ScrollReveal>
-          <div className="mt-10 rounded-2xl border border-border/65 bg-background/78 p-5 shadow-card backdrop-blur-sm sm:p-6">
-            <p className="text-base font-body leading-relaxed text-foreground sm:text-lg">
-              <strong>Die Folge:</strong> Interessenten springen ab, bevor sie ueberhaupt anrufen oder eine Anfrage senden.
-            </p>
-          </div>
-        </ScrollReveal>
       </div>
-    </section>
+    </div>
   );
 };
 
