@@ -257,11 +257,9 @@ const ProblemSection = () => {
           </div>
         </ScrollReveal>
 
-        <div
-          className="relative mt-10 sm:mt-12"
-          style={{ height: `calc(100vh + ${(painPoints.length - 1) * 18}vh)` }}
-        >
-          <div className="sticky top-20 flex min-h-[calc(100vh-5rem)] items-center">
+        <div className="relative mt-10 sm:mt-12">
+          <div className="flex items-center">
+
             <ScrollReveal className="w-full">
               <div className="grid gap-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
                 <div className="max-w-xl">
