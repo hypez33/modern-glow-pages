@@ -140,20 +140,99 @@ const ProblemSection = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const reduceMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-  const carouselProgress = useSpring(useTransform(scrollYProgress, [0, 1], [0, painPoints.length - 1]), {
-    stiffness: 120,
-    damping: 26,
-    mass: 0.24,
-  });
+  const cooldownRef = useRef(false);
+  const carouselProgress = useMotionValue(0);
 
-  useMotionValueEvent(carouselProgress, "change", (value) => {
-    const nextIndex = Math.max(0, Math.min(painPoints.length - 1, Math.round(value)));
-    setActiveIndex((current) => (current === nextIndex ? current : nextIndex));
-  });
+  // Wheel-based snapping with cooldown
+  const handleWheel = useCallback((e: WheelEvent) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    // Only intercept when section is in view
+    if (rect.top > window.innerHeight * 0.3 || rect.bottom < window.innerHeight * 0.5) return;
+
+    const delta = e.deltaY;
+    if (Math.abs(delta) < 15) return;
+    if (cooldownRef.current) {
+      e.preventDefault();
+      return;
+    }
+
+    const direction = delta > 0 ? 1 : -1;
+    setActiveIndex((prev) => {
+      const next = Math.max(0, Math.min(painPoints.length - 1, prev + direction));
+      if (next !== prev) {
+        e.preventDefault();
+        cooldownRef.current = true;
+        // Animate the motion value
+        const start = carouselProgress.get();
+        const target = next;
+        const duration = 400;
+        const startTime = performance.now();
+        const animate = (now: number) => {
+          const elapsed = now - startTime;
+          const t = Math.min(1, elapsed / duration);
+          const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+          carouselProgress.set(start + (target - start) * eased);
+          if (t < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+        setTimeout(() => { cooldownRef.current = false; }, 600);
+        return next;
+      }
+      return prev;
+    });
+  }, [carouselProgress]);
+
+  // Touch-based snapping with cooldown
+  const touchStartY = useRef(0);
+  const handleTouchStart = useCallback((e: TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: TouchEvent) => {
+    if (!sectionRef.current || cooldownRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    if (rect.top > window.innerHeight * 0.3 || rect.bottom < window.innerHeight * 0.5) return;
+
+    const deltaY = touchStartY.current - e.changedTouches[0].clientY;
+    if (Math.abs(deltaY) < 30) return;
+
+    const direction = deltaY > 0 ? 1 : -1;
+    setActiveIndex((prev) => {
+      const next = Math.max(0, Math.min(painPoints.length - 1, prev + direction));
+      if (next !== prev) {
+        cooldownRef.current = true;
+        const start = carouselProgress.get();
+        const target = next;
+        const duration = 400;
+        const startTime = performance.now();
+        const animate = (now: number) => {
+          const elapsed = now - startTime;
+          const t = Math.min(1, elapsed / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          carouselProgress.set(start + (target - start) * eased);
+          if (t < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+        setTimeout(() => { cooldownRef.current = false; }, 600);
+        return next;
+      }
+      return prev;
+    });
+  }, [carouselProgress]);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    el.addEventListener("touchstart", handleTouchStart, { passive: true });
+    el.addEventListener("touchend", handleTouchEnd, { passive: true });
+    return () => {
+      el.removeEventListener("wheel", handleWheel);
+      el.removeEventListener("touchstart", handleTouchStart);
+      el.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [handleWheel, handleTouchStart, handleTouchEnd]);
 
   return (
     <section
